@@ -1,0 +1,17 @@
+<div class="items">
+  <div
+    class="item"
+    *ngFor="let person of people"
+    [routerLink]="'/people/' + person.id"
+  >
+   <span *ngIf="editedPersonId !== person.id" >{{ person.name }}</span>
+    <button (click)="deleteButton(person.id, $event)">X</button>
+    <input (click)="prevent($event)" *ngIf="editedPersonId === person.id" [(ngModel)]="editedInputText" />
+    <button *ngIf="editedPersonId === person.id" (click)="save(person.id, $event)">save</button>
+
+    <button *ngIf="editedPersonId !== person.id" (click)="editButton(person.id, $event,  person.name)">E</button>
+  </div>
+</div>
+
+<input class="input" [(ngModel)]="inputText" />
+<button class="button" (click)="addButton()">Add Person</button>

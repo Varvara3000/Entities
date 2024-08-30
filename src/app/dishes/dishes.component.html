@@ -1,0 +1,12 @@
+<div class="items">
+  <div class="item"
+  *ngFor = "let dish of person.details"
+  >
+    {{dish.favDish}}
+  </div>
+</div>
+<div class="button"
+(click)="goBack()"
+>
+  Back
+</div>
